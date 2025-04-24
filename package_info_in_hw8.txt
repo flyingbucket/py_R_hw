@@ -1,0 +1,7 @@
+(base) flyingbucket@pop-os:~/CODE/py_R_hw$ conda list | grep -E '^(numpy|pandas|scikit-learn|statsmodels)'
+numpy                     1.26.4          py312hc5e2394_0
+numpy-base                1.26.4          py312h0da6c21_0
+numpydoc                  1.7.0           py312h06a4308_0
+pandas                    2.2.2           py312h526ad5a_0
+scikit-learn              1.5.1           py312h526ad5a_0
+statsmodels               0.14.2          py312ha883a20_0
