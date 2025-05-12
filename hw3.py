@@ -19,15 +19,18 @@
 # 这样调用这个函数：提供必不可少的信息，以及两个名称—值对，如颜色和选装配件。这个函数必须能够像下面这样进行调用：
 # car = make_car('subaru', 'outback', color='blue', tow_package=True)
 
-def make_car(brand,model,**car_info):
-    car={}
-    car['brand']=brand
-    car['model']=model
-    for key,val in car_info.items():
-        car[key]=val
+
+def make_car(brand, model, **car_info):
+    car = {}
+    car["brand"] = brand
+    car["model"] = model
+    for key, val in car_info.items():
+        car[key] = val
     return car
-car = make_car('subaru', 'outback', color='blue', tow_package=True)
-car # 交互式打印
+
+
+car = make_car("subaru", "outback", color="blue", tow_package=True)
+car  # 交互式打印
 
 
 # +
@@ -35,25 +38,28 @@ car # 交互式打印
 # 创建一个名为describe_restaurant()的方法和一个名为open_restaurant()的方法，其中前者打印前述两项信息，
 # 而后者打印一条消息，指出餐馆正在营业。
 # 根据这个类创建一个名为restaurant 的实例，分别打印其两个属性，再调用前述两个方法。
-class Restaurant():
-    def __init__(self,name,type,number_served=0):
-        self.restaurant_name=name
-        self.cuisine_type=type
-        self.number_served=number_served
+class Restaurant:
+    def __init__(self, name, type, number_served=0):
+        self.restaurant_name = name
+        self.cuisine_type = type
+        self.number_served = number_served
 
     def describe_restaurant(self):
-        print(f"restaurant name: {self.restaurant_name}, cuisine type: {self.cuisine_type}")
-    
+        print(
+            f"restaurant name: {self.restaurant_name}, cuisine type: {self.cuisine_type}"
+        )
+
     def open_restaurant(self):
         print(f"{self.restaurant_name} is open now")
-    
-    def set_number_served(self,number):
-        self.number_served=number
-    
-    def increment_number_served(self,number):
-        self.number_served+=number
 
-restaurant = Restaurant('KFC','fast food')
+    def set_number_served(self, number):
+        self.number_served = number
+
+    def increment_number_served(self, number):
+        self.number_served += number
+
+
+restaurant = Restaurant("KFC", "fast food")
 print(restaurant.restaurant_name)
 print(restaurant.cuisine_type)
 restaurant.describe_restaurant()
@@ -62,9 +68,9 @@ restaurant.open_restaurant()
 # -
 
 # 3. 三家餐馆：根据你为完成练习2而编写的类创建三个实例，并对每个实例调用方法describe_restaurant()。
-restaurant1 = Restaurant('KFC','fast food')
-restaurant2 = Restaurant('McDonald','fast food')
-restaurant3 = Restaurant('Pizza Hut','Italian food')
+restaurant1 = Restaurant("KFC", "fast food")
+restaurant2 = Restaurant("McDonald", "fast food")
+restaurant3 = Restaurant("Pizza Hut", "Italian food")
 restaurant1.describe_restaurant()
 restaurant2.describe_restaurant()
 restaurant3.describe_restaurant()
@@ -75,31 +81,31 @@ restaurant3.describe_restaurant()
 # 在类User 中定义一个名为describe_user()的方法，它打印用户信息摘要；
 # 再定义一个名为greet_user()的方法，它向用户发出个性化的问候。
 # 创建多个表示不同用户的实例，并对每个实例都调用上述两个方法。
-class User():
-    def __init__(self,first_name,last_name,login_attempts=0,**user_info):
-        self.first_name=first_name
-        self.last_name=last_name
-        self.login_attempts=login_attempts
+class User:
+    def __init__(self, first_name, last_name, login_attempts=0, **user_info):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.login_attempts = login_attempts
         self.__dict__.update(user_info)
-        
-    
+
     def describe_user(self):
         print(f"first name: {self.first_name}, last name: {self.last_name}")
         for key in self.__dict__.keys():
-            if key not in ['first_name','last_name']:
-                print(f"{key}: {getattr(self,key)}")
-    
+            if key not in ["first_name", "last_name"]:
+                print(f"{key}: {getattr(self, key)}")
+
     def greet_user(self):
         print(f"Hello, {self.first_name} {self.last_name}\n")
 
     def increment_login_attempts(self):
-        self.login_attempts+=1
-    
-    def reset_login_attempts(self): 
-        self.login_attempts=0
-        
-user1 = User('Tom','Lee',age=10,gender='F')
-user2 = User('Jerry','Lee',hobby='running')
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+
+user1 = User("Tom", "Lee", age=10, gender="F")
+user2 = User("Jerry", "Lee", hobby="running")
 user1.describe_user()
 user1.greet_user()
 user2.describe_user()
@@ -115,7 +121,7 @@ user2.greet_user()
 
 # 题目要求的属性和方法在第二题处添加了，没有在这个cell重新定义类，需要先运行第二题的cell
 
-restaurant = Restaurant('KFC','fast food')
+restaurant = Restaurant("KFC", "fast food")
 print(restaurant.number_served)
 restaurant.set_number_served(10)
 print(restaurant.number_served)
@@ -131,7 +137,7 @@ print(restaurant.number_served)
 # 并再次打印属性login_attempts 的值，确认它被重置为0。
 
 # 题目要求的属性和方法在第四题处添加了，没有在这个cell重新定义类，需要先运行第四题的cell
-user3=User('Tom','Smith')
+user3 = User("Tom", "Smith")
 print(user3.login_attempts)
 for i in range(5):
     user3.increment_login_attempts()
